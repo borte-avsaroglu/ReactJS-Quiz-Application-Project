@@ -1,3 +1,8 @@
+body{
+  background-color: #ffe6b3;
+
+}
+
 .App {
   text-align: center;
   font-family: arial;
@@ -5,66 +10,20 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  height: 100vh;
+  padding: .8rem;
 }
 
 .Menu {
   width: 500px;
   height: 500px;
   border-radius: 10px;
-  background-color: lightseagreen;
+  background-color: #22c3bb;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-}
-
-button{
-  height: 50px;
-  width: 200px;
-  margin: 5px;
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;
-}
-
-button:hover {
-  cursor: pointer;
-  opacity: 0.8;
-}
-
-#nextQuestionButton {
-  margin-top: 2.5rem;
-  width: 200px;
-}
-
-.name-label{
-  font-size: 28px;
-}
-
-.name-input{
-  height: 50px;
-  padding: .1rem 1rem;
-  font-size: 18px;
-  width: 300px;
-  margin: 5px;
-  border: none;
-  border-radius: 5px;
-}
-
-.question-promp{
-  font-size: 20px;
-}
-
-.answers{
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* İki sütun oluştur */
-  grid-template-rows: 1fr 1fr; /* İki satır oluştur */
-  gap: 10px;
-}
-
-.chosen-option {
-  background-color: #4CAF50;
-  color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .Quiz {
@@ -76,10 +35,7 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.Menu, .Quiz, .EndScreen h1 {
-  color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .EndScreen {
@@ -91,9 +47,114 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-
-h3 {
+.Menu, .Quiz, .EndScreen h1, h3{
   color: white;
+}
+
+button{
+  height: 50px;
+  width: 200px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+}
+
+.menu-header{
+  width: 70%;
+}
+
+.name-label{
+  font-size: 24px;
+}
+
+.name-input{
+  height: 50px;
+  padding: .1rem 1rem;
+  font-size: 18px;
+  width: 270px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.name-input:focus{
+  outline: none;
+}
+
+.start-quiz-btn{
+  height: 50px;
+  width: 180px;
+  margin: 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  transition: 0.2s;
+  background-color: #ffb31a;
+  color: white;
+  font-weight: bold;
+}
+
+.start-quiz-btn:hover{
+  cursor: pointer;
+  background-color: #ffb31ae1;
+}
+
+#nextQuestionButton, #finishQuizButton, #restartQuizButton {
+  margin-top: 2.5rem;
+  width: 180px;
+  transition: 0.2s;
+  background-color: #ffb31a;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#restartQuizButton{
+  cursor: pointer;
+  background-color: #ffb31ae1;
+}
+
+#nextQuestionButton:hover{
+  cursor: pointer;
+  background-color: #ffb31ae1;
+}
+
+#finishQuizButton:hover{
+  cursor: pointer;
+  background-color: #ffb31ae1;
+}
+
+.question-prompt{
+  font-size: 23px;
+  width: 75%;
+  text-align: center;
+}
+
+.answers{
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* İki sütun oluştur */
+  grid-template-rows: 1fr 1fr; /* İki satır oluştur */
+  gap: 10px;
+}
+
+.answers button {
+  height: 50px;
+  width: 200px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.answers button:hover{
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.chosen-option {
+  background-color: #66b3ff;
+  color: white;
+  transition: 0.2s;
 }

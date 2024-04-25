@@ -46,7 +46,7 @@ function Quiz(){
     return (
     <div className="Quiz">
         <div className="question-prompt">
-        <h3>{Questions[currentQuestion].prompt}</h3>
+            <h3>{Questions[currentQuestion].prompt}</h3>
         </div>
         <div className="answers">
         {['optionA', 'optionB', 'optionC', 'optionD'].map((optionKey) => (

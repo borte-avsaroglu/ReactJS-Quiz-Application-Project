@@ -14,13 +14,17 @@ function Menu(){
 
     return (
         <div className="Menu">
-            <label className="name-label">Enter Your Name:</label>
-            <input className="name-input" type="text" placeholder="Ex. John Doe" onChange={handleInputChange}/>
-            {/* {isNameEmpty && <span>Cannot be empty!</span>} */}
-            <button 
-                onClick={() => setGameState("playing")} disabled={isNameEmpty}>
-                Start Quiz
-            </button>
+            <h1 className='menu-header'>Programming Language Quiz</h1>
+            <div className='menu-items'>
+                <label className="name-label">Enter Your Name:</label>
+                <input className="name-input" type="text" placeholder="Ex. John Doe" onChange={handleInputChange}/>
+                {/* {isNameEmpty && <span>Cannot be empty!</span>} */}
+                <button 
+                    className='start-quiz-btn'
+                    onClick={() => setGameState("playing")} disabled={isNameEmpty}>
+                    Start Quiz
+                </button>
+            </div>
         </div>
     )
 }

@@ -13,7 +13,6 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Quiz Application </h1>
       <GameStateContext.Provider 
         value={{
           gameState, 
