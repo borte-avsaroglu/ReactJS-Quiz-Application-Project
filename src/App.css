@@ -20,7 +20,7 @@
 
 button{
   height: 50px;
-  width: 300px;
+  width: 200px;
   margin: 5px;
   border: none;
   border-radius: 5px;
@@ -32,7 +32,8 @@ button:hover {
   opacity: 0.8;
 }
 
-#nextQuestion { 
+#nextQuestionButton {
+  margin-top: 2.5rem;
   width: 200px;
 }
 
@@ -52,6 +53,18 @@ button:hover {
 
 .question-promp{
   font-size: 20px;
+}
+
+.answers{
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* İki sütun oluştur */
+  grid-template-rows: 1fr 1fr; /* İki satır oluştur */
+  gap: 10px;
+}
+
+.chosen-option {
+  background-color: #4CAF50;
+  color: white;
 }
 
 .Quiz {

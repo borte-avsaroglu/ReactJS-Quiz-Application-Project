@@ -12,59 +12,59 @@ function Quiz(){
     const {score, setScore, gameState, setGameState} = useContext(GameStateContext);
 
     const chooseOption = (option) => {
-        setOptionChosen(option)
-    };
+        setOptionChosen(option);
+      };
 
     const nextQuestion = () => {
-        if(Questions[currentQuestion].answer == optionChosen) {
-            setScore(score + 1)
+
+        if (optionChosen === "") {
+            alert("Please choose an option before going to the next question.");
+            return;
         }
-        setCurrentQuestion(currentQuestion + 1);
+        else  if (Questions[currentQuestion][Questions[currentQuestion].answer] === optionChosen) {
+            setScore((prevScore) => prevScore + 1);
+        }
+        setOptionChosen("");
+        setCurrentQuestion((currentQuestion) => currentQuestion + 1);
     };
 
     const finishQuiz = () => {
-        if(Questions[currentQuestion].answer == optionChosen) {
-            setScore(score + 1)
+        if (optionChosen === "") {
+            alert("Please choose an option before finishing the quiz.");
+            return;
         }
-        setGameState('finished');
-    }
+        else if (Questions[currentQuestion][Questions[currentQuestion].answer] === optionChosen) {
+            setScore((prevScore) => prevScore + 1);
+          }
+        setGameState("finished");
+    };
+            
+    const buttonClass = (option) => (
+        optionChosen === option ? 'chosen-option' : 'default-option'
+      );
 
     return (
-        <div className="Quiz">
-            <h1 className='question-promp'>{Questions[currentQuestion].prompt}</h1>
-            <div className='questions'>
-                <button 
-                    onClick={
-                        () => {chooseOption('optionA')
-                    }}>
-                    {Questions[currentQuestion].optionA}
-                </button>
-                <button 
-                    onClick={
-                        () => {chooseOption('optionB')
-                    }}>
-                    {Questions[currentQuestion].optionB}
-                </button>
-                <button 
-                    onClick={
-                        () => {chooseOption('optionC')
-                    }}>
-                    {Questions[currentQuestion].optionC}
-                </button>
-                <button 
-                    onClick={
-                        () => {chooseOption('optionD')
-                    }}>
-                    {Questions[currentQuestion].optionD}
-                </button>
-            </div>
-
-            {currentQuestion == Questions.length - 1 ?(
-                <button onClick={finishQuiz} id='nextQuestion'>Finish Quiz</button>
-            ) : (
-                <button onClick={nextQuestion} id='nextQuestion'>Next Question</button>
-            )}
+    <div className="Quiz">
+        <div className="question-prompt">
+        <h3>{Questions[currentQuestion].prompt}</h3>
         </div>
+        <div className="answers">
+        {['optionA', 'optionB', 'optionC', 'optionD'].map((optionKey) => (
+            <button
+            key={optionKey}
+            className={buttonClass(Questions[currentQuestion][optionKey])}
+            onClick={() => chooseOption(Questions[currentQuestion][optionKey])}
+            >
+            {Questions[currentQuestion][optionKey]}
+            </button>
+        ))}
+        </div>
+        {currentQuestion === Questions.length - 1 ? (
+        <button onClick={finishQuiz} id="finishQuizButton">Finish Quiz</button>
+        ) : (
+        <button onClick={nextQuestion} id="nextQuestionButton">Next Question</button>
+        )}
+    </div>
     );
 }
 
